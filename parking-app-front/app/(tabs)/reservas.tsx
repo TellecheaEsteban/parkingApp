@@ -2,21 +2,26 @@ import { StyleSheet } from 'react-native';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import ReservationButtons from '@/components/Reservation/ReservationButtons';
 
 export default function ReservasScreen() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title">Reservas</ThemedText>
-      <ThemedText>Administra tus reservas de estacionamiento</ThemedText>
+      <ThemedText style={styles.title}>Reservas</ThemedText>
+      <ReservationButtons />
     </ThemedView>
-  );
+  );  
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    paddingTop: 50,
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    paddingBottom: 50,
   },
 });

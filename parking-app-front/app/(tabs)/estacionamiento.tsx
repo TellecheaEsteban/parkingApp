@@ -1,13 +1,14 @@
 import { StyleSheet } from 'react-native';
 
-import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import MapView from 'react-native-maps';
 
 export default function EstacionamientoScreen() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title">Estacionamiento</ThemedText>
-      <ThemedText>Encuentra tu lugar de estacionamiento</ThemedText>
+      <MapView
+        style={styles.map}
+      />
     </ThemedView>
   );
 }
@@ -15,8 +16,11 @@ export default function EstacionamientoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  map: {
+    width: '100%',
+    height: '100%',
   },
 });

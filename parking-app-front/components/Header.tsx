@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-
+import {Colors} from '@/constants/Colors';
 interface HeaderProps {
   title: string;
 }
@@ -21,11 +21,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     paddingTop: 50,
-    borderBottomWidth: 1,
-    borderColor: '#949494',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#949494',
+    backgroundColor: Colors.dark.primary,
   },
   title: {
     fontSize: 24,

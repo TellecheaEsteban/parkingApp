@@ -1,17 +1,16 @@
 import { StyleSheet } from 'react-native';
 
-import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import Header from '@/components/Header';
-import Location from '@/components/Location';
-import PickParking from '@/components/PickParking';
-import News from '@/components/News';
-import Help from '@/components/Help';
+import Location from '@/components/Home/Location';
+import PickParking from '@/components/Home/PickParking';
+import News from '@/components/Home/NewsCopy';
+import Help from '@/components/Home/Help';
 
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
-      <Header title="Logo - ParkingApp" />
+      <Header title="ParkingApp" />
       <ThemedView style={styles.content}>
         <Location />
         <PickParking />

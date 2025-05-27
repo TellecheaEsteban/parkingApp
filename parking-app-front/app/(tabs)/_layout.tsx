@@ -37,15 +37,6 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="perfil"
-        options={{
-          title: "Perfil",
-          tabBarIcon: ({ color }: { color: string }) => (
-            <IconSymbol size={28} name="person.fill" color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="estacionamiento"
         options={{
           title: "Estacionamiento",
@@ -63,6 +54,15 @@ export default function TabLayout() {
           ),
         }}
       />
+        <Tabs.Screen
+          name="perfil"
+          options={{
+            title: "Perfil",
+            tabBarIcon: ({ color }: { color: string }) => (
+              <IconSymbol size={28} name="person.fill" color={color} />
+            ),
+          }}
+        />
     </Tabs>
   );
 }
