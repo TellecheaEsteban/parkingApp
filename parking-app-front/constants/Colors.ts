@@ -5,7 +5,7 @@ const tintColorLight = "#0a7ea4";
 const tintColorDark = "#fff";
 
 // Nuevos colores propuestos
-const primaryColor = "#34b233";       // Tu verde vibrante
+const primaryColor = "#007cce";       // Azul primario nuevo
 const secondaryColor = "#2A5CAA";     // Azul profesional (complementario)
 const accentColorWarning = "#FFA500"; // Naranja para alertas/énfasis
 
@@ -35,7 +35,7 @@ export const Colors = {
     tabIconDefault: "#9BA1A6",
     tabIconSelected: tintColorDark,
     // Añadidos 👇 (mismos colores para consistencia)
-    primary: "#2ECC71", // Verde ligeramente más claro
+    primary: primaryColor, // Azul primario nuevo
     secondary: "#3D7DCC", // Azul más vibrante en oscuro
     warning: accentColorWarning,
     status: {
