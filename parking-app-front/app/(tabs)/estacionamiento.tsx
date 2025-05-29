@@ -1,14 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 import { ThemedView } from '@/components/ThemedView';
-import MapView from 'react-native-maps';
+import ParkingMap from '@/components/Parking/ParkingMap';
 
 export default function EstacionamientoScreen() {
   return (
     <ThemedView style={styles.container}>
-      <MapView
-        style={styles.map}
-      />
+      <ParkingMap style={styles.map} />
     </ThemedView>
   );
 }
