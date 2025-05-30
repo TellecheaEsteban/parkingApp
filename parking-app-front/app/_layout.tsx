@@ -9,7 +9,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    Poppins: require('../assets/fonts/Poppins-Regular.ttf'),
+    Quicksand: require('../assets/fonts/Quicksand-VariableFont_wght.ttf'),
   });
 
   if (!loaded) {
@@ -20,6 +20,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
+        <Stack.Screen name="welcome" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
