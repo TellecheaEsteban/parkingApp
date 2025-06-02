@@ -1,10 +1,11 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
+import { ThemeProvider } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
+import { DarkTheme, DefaultTheme } from '@react-navigation/native';
+import { Stack } from 'expo-router';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import Welcome from '@/components/welcome/Welcome'; // <-- Importa Welcome
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -12,9 +13,19 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
+  // Lógica de bienvenida
+  const [showWelcome, setShowWelcome] = useState(true);
+  useEffect(() => {
+    const timeout = setTimeout(() => setShowWelcome(false), 4000);
+    return () => clearTimeout(timeout);
+  }, []);
+
   if (!loaded) {
-    // Async font loading only occurs in development.
     return null;
+  }
+
+  if (showWelcome) {
+    return <Welcome />; // <-- Loader global
   }
 
   return (
