@@ -1,49 +1,34 @@
-import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
-import { MaterialIcons } from '@expo/vector-icons'
+import React from 'react';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+import { useTheme } from '@/context/ThemeContext'; // Importa el contexto global
 
-interface LigthDarkModeState {
-  isDarkMode: boolean;
-}
+export default function LigthDarkMode() {
+  const { theme, toggleTheme } = useTheme(); // Lee el valor global
 
-export default class LigthDarkMode extends Component<{}, LigthDarkModeState> {
-  state: LigthDarkModeState = {
-    isDarkMode: false
-  }
-
-  toggleMode = () => {
-    this.setState(prevState => ({
-      isDarkMode: !prevState.isDarkMode
-    }));
-  }
-
-  render() {
-    const { isDarkMode } = this.state;
-    
-    return (
-      <View>
-        <TouchableOpacity 
-          style={[
-            styles.button,
-            isDarkMode ? styles.darkButton : styles.lightButton
-          ]}
-          onPress={this.toggleMode}
-        >
-          <MaterialIcons 
-            name={isDarkMode ? "light-mode" : "dark-mode"} 
-            size={24} 
-            color={isDarkMode ? "white" : "black"}
-          />
-          <Text style={[
-            styles.buttonText,
-            isDarkMode ? styles.darkButtonText : styles.lightButtonText
-          ]}>
-            {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-          </Text>
-        </TouchableOpacity>
-      </View>
-    )
-  }
+  return (
+    <View>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          theme === 'dark' ? styles.darkButton : styles.lightButton
+        ]}
+        onPress={toggleTheme}
+      >
+        <MaterialIcons
+          name={theme === 'dark' ? "light-mode" : "dark-mode"}
+          size={24}
+          color={theme === 'dark' ? "white" : "black"}
+        />
+        <Text style={[
+          styles.buttonText,
+          theme === 'dark' ? styles.darkButtonText : styles.lightButtonText
+        ]}>
+          {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -69,4 +54,4 @@ const styles = StyleSheet.create({
   darkButtonText: {
     color: 'white',
   },
-})
+});
