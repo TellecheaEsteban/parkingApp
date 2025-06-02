@@ -4,7 +4,7 @@ import LottieView from 'lottie-react-native';
 
 const animationData = require('./luggo.json');
 
-const { width } = Dimensions.get('window');
+
 
 const Welcome = () => {
   return (
@@ -27,8 +27,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafaf8',
   },
   lottie: {
-    width: width * 0.7,
-    height: width * 0.7,
+    width: '100%',
+    height: undefined,
+    aspectRatio: 1.2, // Puedes ajustar este valor para que la animación no quede ni muy alta ni muy baja
   },
 });
 

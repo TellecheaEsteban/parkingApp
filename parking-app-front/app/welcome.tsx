@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'expo-router';
-import LottieView from 'expo-lottie';
 import Welcome from '@/components/welcome/Welcome';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
@@ -11,7 +10,7 @@ export default function WelcomeScreen() {
     // Espera 2 segundos y navega al home
     const timeout = setTimeout(() => {
       router.replace('/(tabs)');
-    }, 2000);
+    }, 4000);
     return () => clearTimeout(timeout);
   }, [router]);
 
