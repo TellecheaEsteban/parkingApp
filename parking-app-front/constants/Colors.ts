@@ -12,12 +12,12 @@ const accentColorWarning = "#FFA500"; // Naranja para alertas/énfasis
 export const Colors = {
   light: {
     text: "#11181C",
-    background: "#fff",
+    background: "#fafaf8",
     tint: tintColorLight,
     icon: "#687076",
     tabIconDefault: "#687076",
     tabIconSelected: tintColorLight,
-    // Añadidos 👇
+    // Añadidos 
     primary: primaryColor,
     secondary: secondaryColor,
     warning: accentColorWarning,

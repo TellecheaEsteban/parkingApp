@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+const { width, height } = Dimensions.get('window');
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -19,14 +20,14 @@ export default function Header({ title }: HeaderProps) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    paddingTop: 50,
+    padding: width * 0.04,         // 4% del ancho
+    paddingTop: height * 0.07,    // 7% del alto de pantalla (mejor para statusbar/notch)
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.dark.primary,
   },
   title: {
-    fontSize: 24,
+    fontSize: width * 0.06,       // 6% del ancho (aprox 24 en móviles comunes)
     fontWeight: 'bold',
   },
 });

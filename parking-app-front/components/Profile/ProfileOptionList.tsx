@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Dimensions } from "react-native";
+const { width } = Dimensions.get('window');
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 const styles = StyleSheet.create({
   text: {
-    color: "#ffffff",
-    fontSize: 16,
+    fontSize: width * 0.04,         // ~16 en móviles comunes
     fontWeight: "bold",
   },
   container: {
-    padding: 20,
-    marginHorizontal: 20,
-    marginBottom: 20,
+    padding: width * 0.05,          // 5% del ancho
+    marginHorizontal: width * 0.05, // 5% del ancho
+    marginBottom: width * 0.05,     // 5% del ancho
     width: "100%",
   },
   listItem: {
@@ -19,14 +20,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
-    height: 70,
-    gap: 10,
-    
+    height: width * 0.18,           // ~70 en móviles comunes
+    gap: width * 0.025,             // 2.5% del ancho
   },
 });
 
-export default class ProfileOptionList extends Component {
+class ProfileOptionList extends Component<{ textColor: string }> {
+
   render() {
+    const { textColor } = this.props;
     return (
       <View style={styles.container}>
         <View
@@ -34,45 +36,45 @@ export default class ProfileOptionList extends Component {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            borderBottomColor: "#ffffff",
+            borderBottomColor: textColor,
             borderBottomWidth: 1,
           }}
         >
           <View style={styles.listItem}>
-            <Icon name="person" size={24} color="#ffffff"/>
-            <Text style={styles.text}>Mi cuenta</Text>
+            <Icon name="person" size={24} color={textColor}/>
+            <Text style={[styles.text, { color: textColor }]}>Mi cuenta</Text>
           </View>
-          <Icon name="arrow-right" size={24} color="#ffffff" />
+          <Icon name="arrow-right" size={24} color={textColor} />
         </View>
         <View
           style={{
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            borderBottomColor: "#ffffff",
+            borderBottomColor: textColor,
             borderBottomWidth: 1,
           }}
         >
           <View style={styles.listItem}>
-            <Icon name="book" size={24} color="#ffffff" />
-            <Text style={styles.text}>Reservas</Text>
+            <Icon name="book" size={24} color={textColor} />
+            <Text style={[styles.text, { color: textColor }]}>Reservas</Text>
           </View>
-          <Icon name="arrow-right" size={24} color="#ffffff" />
+          <Icon name="arrow-right" size={24} color={textColor} />
         </View>
         <View
           style={{
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            borderBottomColor: "#ffffff",
+            borderBottomColor: textColor,
             borderBottomWidth: 1,
           }}
         >
           <View style={styles.listItem}>
-            <Icon name="warning" size={24} color="#ffffff" />
-            <Text style={styles.text}>Multas</Text>
+            <Icon name="warning" size={24} color={textColor} />
+            <Text style={[styles.text, { color: textColor }]}>Multas</Text>
           </View>
-          <Icon name="arrow-right" size={24} color="#ffffff" />
+          <Icon name="arrow-right" size={24} color={textColor} />
         </View>
 
         <View
@@ -80,17 +82,24 @@ export default class ProfileOptionList extends Component {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            borderBottomColor: "#ffffff",
+            borderBottomColor: textColor,
             borderBottomWidth: 1,
           }}
         >
           <View style={styles.listItem}>
-            <Icon name="business" size={24} color="#ffffff" style={{ alignSelf: 'center' }} />
-            <Text style={styles.text}>Beneficio corporativo</Text>
+            <Icon name="business" size={24} color={textColor} style={{ alignSelf: 'center' }} />
+            <Text style={[styles.text, { color: textColor }]}>Beneficio corporativo</Text>
           </View>
-          <Icon name="arrow-right" size={24} color="#ffffff" />
+          <Icon name="arrow-right" size={24} color={textColor} />
         </View>
       </View>
     );
   }
 }
+
+function ProfileOptionListWrapper(props) {
+  const textColor = useThemeColor({}, 'text');
+  return <ProfileOptionList {...props} textColor={textColor} />;
+}
+
+export default ProfileOptionListWrapper;
