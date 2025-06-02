@@ -1,5 +1,5 @@
+import React from 'react';
 import { StyleSheet } from 'react-native';
-
 import { ThemedView } from '@/components/ThemedView';
 import Header from '@/components/Header';
 import Location from '@/components/Home/Location';
@@ -27,12 +27,12 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    padding: 20,
+    padding: '5%',
     alignItems: 'center',
   },
   link: {
-    marginTop: 20,
-    padding: 10,
+    marginTop: '5%',
+    padding: '3%',
     backgroundColor: '#A1CEDC',
     borderRadius: 8,
   },
