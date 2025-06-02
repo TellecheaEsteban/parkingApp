@@ -1,11 +1,22 @@
 import React from 'react';
-import { View, ActivityIndicator, StyleSheet, Text } from 'react-native';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import LottieView from 'lottie-react-native';
 
 const Welcome = () => {
+  const [isLoading, setIsLoading] = React.useState(true);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>¡Bienvenido a ParkingApp!</Text>
-      <ActivityIndicator size="large" color="#007AFF" style={styles.loader} />
+      <LottieView
+        source={require('../../assets/images/luggo.json')}
+        autoPlay
+        loop
+        style={styles.animation}
+        onAnimationFinish={() => setIsLoading(false)}
+      />
+      {isLoading && (
+        <ActivityIndicator size="large" color="#007AFF" style={styles.loader} />
+      )}
     </View>
   );
 };
@@ -17,14 +28,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fafaf8',
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 24,
-    color: '#333',
+  animation: {
+    width: '100%',
+    height: '60%',
   },
   loader: {
-    marginTop: 16,
+    position: 'absolute',
+    bottom: 80,
+    alignSelf: 'center',
   },
 });
 
